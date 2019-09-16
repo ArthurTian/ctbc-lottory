@@ -1,0 +1,437 @@
+/* @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css); */
+/*
+For 2018 尾牙使用
+*/
+html, body {
+	width: 100%;
+	height: 100%;
+	background: black;
+	background: url('../img/bg.png') no-repeat center center fixed;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	overflow: hidden;
+	/* 	background-position: center center; */
+	color: #FFF;
+	font-size: 1vw;
+	font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', 'Muli',
+		'Helvetica', 'Arial';
+}
+
+a {
+	color: white;
+}
+
+/* h1, .h1 {
+	font-size: 4rem;
+}
+h2, .h2 {
+	font-size: 3rem;
+}
+
+h3, .h3 {
+	font-size: 2rem;
+}
+
+h4, .h4 {
+	font-size: 1rem;
+}
+
+h5, .h5 {
+	font-size: 3rem;
+}
+ */
+.txt {
+	font-size: 1.5rem;
+}
+
+/* index css */
+section.masthead {
+	position: relative;
+	width: 100%;
+	height: 30%;
+	color: white;
+	top: -1rem;
+}
+
+section.mastbody {
+	margin-top: 2vh;
+}
+
+section.head-sm {
+	top: -3rem;
+}
+
+container {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.contain-bg {
+	background-color: rgba(0, 0, 0, 0.76);
+	border-radius: 1rem;
+	padding: 3rem 0.5rem;
+}
+
+select {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-color: none;
+}
+
+.row {
+	margin: 1rem auto;
+}
+
+.logo {
+	background: url(../img/logo_ch.png);
+	width: 100%;
+	height: 30vh;
+	position: fixed;
+	margin-top: 5vh;
+	z-index: 9;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.logo-s {
+	background: url(../img/logo_ch.png);
+	width: 100%;
+	height: 20vh;
+	/* position: fixed; */
+	background-repeat: no-repeat;
+	background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	-o-background-size: contain;
+	background-position: center;
+}
+
+/* select bar */
+.prizeselect {
+	background-color: rgba(0, 0, 0, 0.55) !important;
+	color: #fff !important;
+	height: 10vh !important;
+	font-weight: bolder;
+	text-align: center;
+	border: 1px solid #fff;
+	font-family: inherit;
+	font-size: 4vh;
+	margin-top: 3vh;
+}
+
+.prizeselect option {
+	color: #000 !important;
+}
+
+/* winner box */
+.winnerList {
+	width: 100%;
+	overflow: auto;
+	height: 52vh;
+	border: 1px solid;
+	background-color: rgba(0, 0, 0, 0.55);
+	padding-left: 2rem;
+}
+
+.winnerList::-webkit-scrollbar {
+	width: 0 !important
+}
+
+.winnerList {
+	-ms-overflow-style: none;
+}
+
+.winnerList {
+	overflow: -moz-scrollbars-none;
+}
+
+.model::-webkit-scrollbar {
+	width: 0 !important
+}
+
+.model {
+	-ms-overflow-style: none;
+}
+
+.model {
+	overflow: -moz-scrollbars-none;
+}
+
+/* button GO! */
+.btn-go {
+	background: url(../img/CTBC.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	-o-background-size: contain;
+	background-position: center;
+	position: fixed;
+	width: 15vw !important;
+	height: 15vw !important;
+	border-radius: 999em;
+	bottom: 10vh;
+	margin-left: 15vh;
+	color: #000;
+	font-size: 11vh;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	/* 	animation: rotate 2s infinite linear; */
+}
+
+.btn-go-active:after {
+	content: '';
+	width: 95%;
+	height: 95%;
+	position: absolute;
+	border-radius: 100%;
+	top: 3%;
+	left: 2%;
+	opacity: 0.7;
+	border-width: 5rem;
+	box-shadow: #ffffcd85 -5px -3px 6px 0px;
+	animation: rotate 1s infinite linear;
+	-webkit-animation: rotate 1s infinite linear;
+}
+
+.btn-go:hover, .btn-go:focus, .btn-go-active {
+	color: #000;
+	background: url(../img/logo-y.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	-o-background-size: contain;
+	background-position: center;
+	box-shadow: 0vh 0vh;
+}
+
+
+.btn {
+	padding: 0.25rem 1.5rem;
+}
+
+.btn-label {
+	font-size: 3rem;
+	display: block;
+	margin-top: 41vh;
+	margin-left: 10vw;
+}
+
+.l-space {
+	letter-spacing: 1vh;
+}
+
+.footer {
+	background: #000000bd;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 6vh;
+}
+
+.footer .row {
+	margin: 0 auto;
+	padding: 0.25rem;
+}
+
+.footer>.btn-lg {
+	padding: 0 auto;
+}
+
+/* winner list */
+.title {
+	font-size: 4vh;
+}
+
+.winnerList>span {
+	margin-bottom: 1rem;
+}
+
+.winnerListlarge {
+	height: 60vh;
+}
+
+.winnerList p {
+	font-size: 3rem;
+	text-shadow: 2px 2px rgba(0, 0, 0, 0.52);
+	display: block;
+	/* 	margin: -20px; */
+}
+
+.winnerList h1, h3 {
+	display: inline;
+}
+
+/* Slot Machine */
+#planeMachine, #userMachine, #tableMachine {
+	height: 15vh;
+	overflow: hidden;
+	line-height: 7.75rem;
+	font-size: 3.75rem;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.55);
+	border: 1px solid #fff;
+}
+
+#planeMachine {
+	border-right: none;
+}
+
+#userMachine {
+	border-left: none;
+}
+
+.itemColNumber {
+	background-color: #700B7B;
+}
+
+/* #userMachine p {
+	line-height: 105px;
+	margin-bottom: 0;
+}
+
+#userMachine span {
+	display: block;
+	margin-top: -1.5rem;
+} */
+.modal-dialog {
+	max-width: 100%;
+}
+
+.modal-body {
+	height: 83vh;
+} 
+
+.modal-content {
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content .modal-header {
+	color: #fff;
+}
+
+.slideblock {
+	width: 100%;
+}
+
+.txt-title {
+	font-size: 2rem;
+}
+
+.txt-title-s {
+	font-size: 1.5rem;
+}
+
+.txt-bg {
+	font-size: 3.25rem;
+	font-weight: bold;
+}
+
+.txt-master {
+	font-size: 3.5rem;
+	font-weight: bolder;
+}
+
+/* #listmodal .big-f2 .card-body {
+	font-size: 3em;
+}
+
+.big-f2 p {
+	font-size: 2em;
+}
+
+#listmodal .big-f5 .card-body {
+	font-size: 5em;
+}
+
+#listmodal .h0 {
+	font-size: 5em;
+} */
+
+/*主配色*/
+.bg-color {
+	background-color: #ff9000 !important;
+}
+
+/* 中獎名單輪播卡*/
+.card {
+	display: block;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	margin: auto;
+	padding: 1vh;
+	height: 17.5vh;
+}
+
+.modal-body {
+	padding: 0.5rem;
+}
+
+.card-body {
+	padding: 0rem 0.5rem;
+	font-size: 1rem;
+	color: black;
+}
+
+.bg-color .card-header {
+	background-color: #ff9000 !important;
+	font-size: 1rem;
+	font-weight: bold;
+	padding: 0.05em 1em;
+}
+
+.table-modal-h {
+	font-size: 4rem;
+	margin-top: 1rem;
+	font-weight: bold;
+	letter-spacing: 0.25rem;
+	text-align: center;
+}
+
+.card-table {
+	height: 14vh;
+}
+
+.table-winbox {
+	font-size: 3rem;
+	flex: 0 0 23%;
+	width: 100%
+}
+
+.bg-yellow {
+	background-color: #fff400 !important;
+}
+
+.col-2 {
+	-ms-flex: 0 0 20%;
+	flex: 0 0 20%;
+	max-width: 20%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+
+@keyframes rotate {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100%{
+		transform: rotateZ(360deg);
+	}
+}

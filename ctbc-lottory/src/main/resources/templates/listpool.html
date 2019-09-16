@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header">
+</head>
+<body>
+	<div th:include="navbar"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-3">
+				<button id="insertBtn" class="btn btn-primary form-control">新增名單</button>
+			</div>
+		</div>
+		<hr>
+		<div class="col-12">
+			<table id="maintable" class="table table-bordered" style="width: 100%">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th width="30%" scope="col">需求單號</th>
+						<th width="10%" scope="col">抽獎人數</th>
+						<th width="10%" scope="col">抽獎筆數(*倍率)</th>
+						<th scope="col">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+	<!-- Edit Mode -->
+	<div class="modal fade" id="editmModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<form id="editform" name="editform">
+					<div class="modal-header">
+						<h4 class="modal-title">編輯抽獎名單</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<!-- Modal body -->
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div th:insert="alert"></div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label text-right">序號</label>
+								<div class="col-sm-10">
+									<span class="text-bold text-primary" id="uid"></span>
+									<input type="hidden" name="uid" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label text-right">名稱</label>
+								<div class="col-sm-10">
+									<input type="text" name="poolName" class="form-control" required="required" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label text-right">名單人數</label>
+								<div class="col-sm-10">
+									<span class="text-bold text-primary" id="poolcnt"></span>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label text-right">封存名單</label>
+								<div class="col-sm-10">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="incase" id="incaseY" value="Y" checked>
+										<label class="form-check-label" for="incaseY">正常</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="incase" id="incaseN" value="N">
+										<label class="form-check-label" for="incaseN">封存</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label text-right">匯入名單</label>
+								<div class="col-sm-10">
+									<input type="file" name="file" id="file" class="form-control-file">
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+					<!-- footer -->
+					<div class="modal-footer">
+					
+						<button id="editsubmit" type="submit" class="btn btn-primary">
+							儲存<i class="fas fa-spinner fa-pulse loading-icon" style="display: none"></i>
+						</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+					</div>
+				</form>
+				<!-- 				<div class="modal-header">
+					<h4 class="modal-title">抽籤名單</h4>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<form id="uploadMemberFileForm" enctype="multipart/form-data" action="admin/uploadUserList" method="POST">
+							<div class="row">
+								<div class="col-10">
+									<label class="custom-file">
+										<input type="file" name="file" id="file" class="form-control-file" placeholder="Username">
+									</label>
+								</div>
+								<div class="col-2">
+									<input type="button" id="uploadMemberBtn" class="btn btn-info" value="上傳">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="footer"></div>
+	<script th:src="@{/js/listpool.js}" src="../../static/js/listpool.js"></script>
+</body>
+</html>

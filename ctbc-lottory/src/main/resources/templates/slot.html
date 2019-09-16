@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header">
+</head>
+<body>
+	<div th:include="navbar"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-3 text-right">
+				<span>現正抽獎：</span>
+			</div>
+			<div class="col-3">
+				<span class="text-primary" th:text="${events.eventId}"></span>
+			</div>
+			<div class="col-3 offset-3" th:if="${events.incase == 'N'}">
+				<h4>
+					<span class="badge badge-danger">資料封存</span>
+				</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-3 text-right">
+				<span>抽獎名稱：</span>
+			</div>
+			<div class="col-3">
+				<span class="text-primary" th:text="${events.eventName}"></span>
+			</div>
+			<div class="col-3 text-right">
+				<span>抽獎名單：</span>
+			</div>
+			<div class="col-3">
+				<span class="text-primary" th:text="${events.usrPoolObj.poolName}"></span>
+
+			</div>
+		</div>
+		<hr />
+		<div class="row" th:if="${events.incase == 'Y'}">
+			<div class="col-12">
+				<button class="btn btn-primary" id="slotAllBtnP" onclick="slot('T')">抽正取</button>
+				<button class="btn btn-warning" id="slotAllBtnB" onclick="slot('R')">抽備取</button>
+				<button class="btn btn-danger" id="closeEventBtn" onclick="closeSlot()">封存</button>
+				<!-- <button class="btn " id="resetSlotBtn">重新抽獎</button> -->
+				<!-- 				<button class="btn " id="slotAllBtn">匯出名單</button> -->
+			</div>
+		</div>
+		<hr />
+		<table id="slotTb" class="table table-bordered" style="width: 100%">
+			<thead>
+				<tr>
+					<th width="8%">名稱</th>
+					<th width="5%">正取人數</th>
+					<th width="5%">備取人數</th>
+					<th width="32%">正取結果</th>
+					<th width="32%">備取結果</th>
+					<!-- <th width="">操作</th> -->
+				</tr>
+			</thead>
+			<tbody id="prizebody">
+				<tr th:each="prize : ${events.prizeList}"
+					th:attr="data-pid=${prize.pid}">
+					<td th:text="${prize.evname}"></td>
+					<td th:text="${prize.takecnt}"></td>
+					<td th:text="${prize.readycnt}"></td>
+					<td><th:block th:each="log : ${prize.take_winner}">
+							<span class="badge badge-success" th:text="${log.keyid}"></span>
+						</th:block></td>
+					<td><th:block th:each="log : ${prize.ready_winner}">
+							<span class="badge badge-secondary" th:text="${log.keyid}"></span>
+						</th:block></td>
+
+					<!-- <th:block th:switch="${events.incase}">
+						<th:block th:case="'Y'">
+							<td>
+								<button class="btn btn-primary" name="tSlot" th:attr="data-pid=${prize.pid}" onclick="slot('T',this)" th:disabled="${prize.takecnt - #lists.size(prize.take_winner) <=0}">
+									抽正取 <i class="fas fa-spinner fa-pulse loading-icon" style="display: none"></i>
+								</button>
+								<button class="btn btn-warning" name="rSlot" th:attr="data-pid=${prize.pid}" onclick="slot('R',this)" th:disabled="${prize.readycnt - #lists.size(prize.ready_winner) <=0}">
+									抽備取 <i class="fas fa-spinner fa-pulse loading-icon" style="display: none"></i>
+								</button>
+							</td>
+						</th:block>
+						<th:block th:case="*">
+							<td></td>
+						</th:block>
+					</th:block> -->
+				</tr>
+			</tbody>
+		</table>
+
+		<form id="actionform" method="post">
+			<input type="hidden" id="uid" name="uid" th:value="${events.uid}" />
+			<input type="hidden" id="usrPool" name="poolId"
+				th:value="${events.usrPoolObj.uid}" /> <input type="hidden"
+				id="status" name="status" th:value="${param?.status}" />
+		</form>
+
+		<!-- <div class="modal fade" id="loadding" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<i class="fas fa-spinner fa-pulse loading-icon"></i>
+				</div>
+			</div>
+		</div>  -->
+
+
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalCenterTitle"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header text-center'">
+						<h1>
+							<i class="fas fa-spinner fa-pulse loading-icon"></i> 抽獎中，請勿按任何按鍵
+						</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div th:replace="footer"></div>
+	<script th:src="@{/js/slotlottory.js}"
+		src="../../static/js/slotlottory.js"></script>
+</body>
+</html>

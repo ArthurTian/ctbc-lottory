@@ -1,0 +1,30 @@
+html, body {
+	font-size: 14px;
+	font-family: 'Meiryo', 'Microsoft JhengHei', 'Muli', 'Helvetica',
+		'Arial';
+}
+
+button, input, optgroup, select, textarea {
+	font-family: 'Meiryo', 'Microsoft JhengHei', 'Muli', 'Helvetica',
+		'Arial';
+}
+
+.img-logo {
+	width: 45px;
+	height: 45px;
+	background: url('../img/CTBC.png') no-repeat center center;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/* overflow: hidden; */
+	display: inline-block;
+}
+
+.row {
+	margin-top: 10px;
+}
+
+span {
+	line-height: 2.25rem;
+}

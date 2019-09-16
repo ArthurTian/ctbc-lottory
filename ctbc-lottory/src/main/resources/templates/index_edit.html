@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Edit Mode -->
+<div class="modal fade" id="editmModal" tabindex="-1" role="dialog"
+	aria-hidden="true">
+	<form name="editform" class="form">
+		<input type="hidden" name="uid" />
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">編輯活動</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<!-- Modal body -->
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-6">
+								<label> <span class="text-warning">*</span> 需求單號：
+								</label> <input type="text" id="eventId" name="eventId"
+									class="form-control" required="required" />
+							</div>
+							<div class="col-6">
+								<label> <span class="text-warning">*</span> 活動名稱：
+								</label> <input type="text" name="eventName" class="form-control"
+									required="required" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<label> <span class="text-warning">*</span> 讀取名單： <span
+									id="import-info"></span>
+								</label>
+								<div id="uploadfile">
+									<!-- 										<div class="col-12"> -->
+									<!-- 											<input type="file" name="file" id="file" -->
+									<!-- 												class="form-control-file"> -->
+									<!-- 										</div> -->
+									<div class="col-12">
+										<button id="editsubmit" type="button" class="btn btn-primary">
+											匯入<i class="fas fa-spinner fa-pulse loading-icon"
+												style="display: none"></i>
+										</button>
+									</div>
+									<input type="hidden" id="usrpool_uid" name="usrpool_uid" value="" />
+								</div>
+							</div>
+							<div class="col-6">
+								<label> <span class="text-warning">*</span> 抽獎方式：
+								</label> <select class="form-control" name="slottype"
+									required="required">
+									<option value="">請選擇抽獎方式</option>
+									<th:block th:each="list : ${slottype}">
+										<option th:value="${list.KEYID}">[[${list.KEYVAL}]]</option>
+									</th:block>
+								</select>
+							</div>
+						</div>
+						<!-- <div class="row">
+								<div class="col-12">
+									<label>活動封存：</label>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="incase" id="incaseY" value="Y" checked>
+										<label class="form-check-label" for="incaseY">正常</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="incase" id="incaseN" value="N">
+										<label class="form-check-label" for="incaseN">封存</label>
+									</div>
+
+								</div>
+							</div> -->
+						<hr />
+						<div class="row">
+							<label>獎項：</label>
+							<button type="button" id="addnewprize"
+								class="btn btn-sm btn-success">新增獎項</button>
+						</div>
+						<div class="row">
+							<table id="prizeTable" class="table table-bordered"
+								style="width: 100%">
+								<thead>
+									<tr>
+										<!-- 											<th scope="col">獎項編號</th> -->
+										<th scope="col">獎項名稱</th>
+										<th scope="col">正取</th>
+										<th scope="col">備取</th>
+										<th scope="col">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- footer -->
+				<div class="modal-footer">
+					<button id="editsubmit" type="submit" class="btn btn-primary">
+						儲存活動 <i class="fas fa-spinner fa-pulse loading-icon"
+							style="display: none"></i>
+					</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">關閉</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
+</div>
+<!-- end of modal -->
