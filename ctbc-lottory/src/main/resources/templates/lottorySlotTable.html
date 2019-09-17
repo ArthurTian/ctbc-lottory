@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2018中國信託大個金旺年會</title>
+<!-- Bootstrap core CSS -->
+<link href="../static/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/plugin/bootstrap/css/bootstrap.min.css}">
+<!-- Custom fonts for this template -->
+<link rel="stylesheet" th:href="@{/plugin/simple-line-icons/css/simple-line-icons.css}"
+	href="../static/plugin/simple-line-icons/css/simple-line-icons.css">
+<!-- Slot Machine CSS -->
+<link rel="stylesheet" th:href="@{/plugin/slotmachine/jquery.slotmachine.min.css}" type="text/css" media="screen"
+	href="../static/plugin/slotmachine/jquery.slotmachine.min.css">
+<!-- Custom styles for this template -->
+<link th:href="@{css/mainstyle.css}" href="../static/css/mainstyle.css" rel="stylesheet">
+</head>
+
+<body>
+	<input type="hidden" id="prizelv" name="prizelv" th:value="${param.prizelv[0]}" />
+	<section>
+		<div class="row">
+			<div class="col-3">
+				<div class="logo-s"></div>
+			</div>
+			<div class="col-md-9">
+				<select id="prize_type" name="prize_type" class=" prizeselect form-control l-space text-large">
+					<option class="l-space" value="X" data-lastcnt="0">區域</option>
+					<option class="l-space" value="" data-lastcnt="0">輪播</option>
+				</select>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container-fluid my-auto">
+			<div class="row">
+				<div class="col-8" style="align-self: center; overflow: hidden">
+					<span class="title">幸運桌次</span> <br />
+					<div id='winnerList' class="winnerList winnerListlarge align-baseline">
+						<div class="row"></div>
+					</div>
+				</div>
+				<div class="col-4 pl-0">
+					<div id="tableMachine" class="slotTable">
+						<div class="text-center" data-vid="default">幸運桌次</div>
+					</div>
+				</div>
+			</div>
+			<!-- go button -->
+			<button class="btn btn-lg btn-go" id="playbtn" style="margin-left: 75vw;"></button>
+			<!-- 					<img th:src="@{img/logo_ch.png}"/> -->
+			<!-- <span class="btn-label"> GO <i class="fa fa-hand-o-up"></i></span> -->
+		</div>
+	</section>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="listmodal" tabindex="-1" role="dialog" aria-labelledby="#listmodalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="l-space">恭喜幸運桌次</h1>
+				</div>
+				<div id="listmodal-body" class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+
+	<div th:include="foot"></div>
+	<!-- Bootstrap core JavaScript -->
+	<script src="plugin/jquery/jquery.min.2.2.4.js"></script>
+	<script src="plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="plugin/cycle2/jquery.cycle2.js"></script>
+	<script src="plugin/cycle2/jquery.cycle2.scrollVert.js"></script>
+	<script src="plugin/slotmachine/jquery.slotmachine.js"></script>
+	<script src="js/slotMain.js"></script>
+	<script src="js/lottoryTable.js"></script>
+</body>
+</html>

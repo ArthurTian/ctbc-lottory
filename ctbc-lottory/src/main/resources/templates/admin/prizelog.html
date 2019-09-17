@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/header"></head>
+<body>
+	<div th:include="admin/navbar"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<button id="updateStatusBtn" class="btn btn-warning form-control">設定未領獎</button>
+			</div>
+			<div class="col-8">
+				<button id="exportBtn" class="btn btn-primary form-control">匯出中獎名單</button>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div id="exportXlsControl" style="display: none">
+				<div class="col" >
+					<label>獎品代號</label>
+					<input type="text" name="prizeid" />
+					<input class="btn btn-success" type="button" id="exportXlsBtn" value="匯出">
+				</div>
+			</div>
+			<div id="updateStatusControl" style="display: none">
+				<div class="col" >
+					<label>員工編號</label>
+					<input type="text" name="updateUserId" />
+					<input class="btn btn-success" type="button" id="updateStatusSubmit" value="確認">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<table class="table table-bordered" width="100%">
+					<thead>
+						<tr>
+<!-- 							<th class="hidden">勾選</th> -->
+							<th scope="col">中獎序號</th>
+							<th scope="col">獎品代號</th>
+							<th scope="col">獎品名稱</th>
+
+							<th scope="col">員工編號</th>
+							<th scope="col">員工姓名</th>
+							<th scope="col">部門</th>
+							<th scope="col">備註</th>
+							<th scope="col">簽收</th>
+						</tr>
+					</thead>
+					<tbody>
+						<th:block th:each="list,iter : ${list}">
+							<tr>
+<!-- 								<th><input type="checkbox" name="checkYn" value="Y"></th> -->
+								<td th:text="${list.RUNCNT}"></td>
+
+								<td th:text="${list.PRIZEID}"></td>
+								<td th:text="${list.PRIZE_NAME}"></td>
+								<td th:text="${list.USERID}"></td>
+								<td th:text="${list.USERNAME}"></td>
+								<td th:text="${list.DEPARTMENT +'/'+ list.DEPGROUP}"></td>
+<!-- 								<td th:text="${list.STATUS =='1' ? '未領獎':'正常'}"></td> -->
+								<td th:text="${list.ISOFF=='Y' ? '公假':''}"></td>
+								<td></td>
+							</tr>
+						</th:block>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+
+	</div>
+	<!-- /.container -->
+	
+	<div th:include="admin/footer"></div>
+	
+	<!-- <script src="/plugin/jquery/jquery.min.js"></script>
+	<script src="/plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	dataTable
+	<script src="/plugin/DataTables-1.10.16/js/jquery.dataTables.js"></script>
+	<script src="/plugin/DataTables-1.10.16/js/dataTables.bootstrap4.js"></script> -->
+	<!-- dataTable print button -->
+	<script src="/plugin/DataTables-1.10.16/Buttons-1.5.1/js/dataTables.buttons.min.js"></script>
+	<script src="/plugin/DataTables-1.10.16/Buttons-1.5.1/js/buttons.bootstrap4.js"></script>
+	<script src="/plugin/DataTables-1.10.16/Buttons-1.5.1/js/buttons.print.min.js"></script>
+	<script src="/js/admin/prizelog.js"></script>
+	<script>
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2017中國信託大個金旺年會</title>
+<!-- Bootstrap core CSS -->
+<link href="/plugin/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-- Custom fonts for this template -->
+<!-- <link rel="stylesheet" href="plugin/font-awesome/css/font-awesome.min.css"> -->
+<!-- <link rel="stylesheet" href="plugin/simple-line-icons/css/simple-line-icons.css"> -->
+
+<link href="/plugin/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+<link href="/plugin/DataTables-1.10.16/Buttons-1.5.1/css/buttons.dataTables.css" rel="stylesheet">
+<link href="/plugin/DataTables-1.10.16/Buttons-1.5.1/css/buttons.bootstrap4.css" rel="stylesheet">
+
+<link href="/css/admin.css" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="admin/header"></div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<!-- 				<button id="updateStatusBtn" class="btn btn-warning form-control">設定未領獎</button> -->
+			</div>
+			<div class="col-8">
+				<button id="exportBtn" class="btn btn-primary form-control">匯出中獎名單</button>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div id="exportXlsControl" style="display: none">
+				<div class="col">
+					<label>區域代號</label> <input type="text" name="prizeid" /> <input class="btn btn-success" type="button" id="exportXlsBtn" value="匯出">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<table class="table table-bordered" width="100%">
+					<thead>
+						<tr>
+							<th scope="col">中獎序號</th>
+							<th scope="col">獎次代號</th>
+							<th scope="col">區域</th>
+							<th scope="col">桌次</th>
+							<th scope="col">簽收</th>
+						</tr>
+					</thead>
+					<tbody>
+						<th:block th:each="list,iter : ${list}">
+							<tr>
+								<td th:text="${list.RUNCNT}"></td>
+								<td th:text="${list.PRIZEID}"></td>
+								<td th:text="${list.TBGROUP} + ' ' + ${list.PRIZE_NAME}"></td>
+<!-- 								<td th:text="${list.PRIZE_NAME}"></td> -->
+								<td th:text="${list.TBID}"></td>
+								<td></td>
+							</tr>
+						</th:block>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- /.container -->
+	<script src="/plugin/jquery/jquery.min.js"></script>
+	<script src="/plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- dataTable -->
+	<script src="/plugin/DataTables-1.10.16/js/jquery.dataTables.js"></script>
+	<script src="/plugin/DataTables-1.10.16/js/dataTables.bootstrap4.js"></script>
+	<!-- dataTable print button -->
+	<script src="/plugin/DataTables-1.10.16/Buttons-1.5.1/js/dataTables.buttons.min.js"></script>
+	<script src="/plugin/DataTables-1.10.16/Buttons-1.5.1/js/buttons.bootstrap4.js"></script>
+	<script src="/plugin/DataTables-1.10.16/Buttons-1.5.1/js/buttons.print.min.js"></script>
+
+	<script>
+		$(function() {
+			$('.table').DataTable(
+					{
+						dom : 'Bfrtip',
+						buttons : [{
+							extend : 'print',
+							text : '列印中獎名單',
+							className : 'btn-primary',
+							customize : function(win) {
+								$(win.document.body).css('font-size', '10pt');
+								$(win.document.body).find('table').removeClass(
+										'dataTable').addClass('compact').css(
+										'font-size', '10pt');
+							}
+						}]
+					});
+		});
+
+		$('#printBtn').click(function() {
+			window.print();
+		});
+
+		//匯出
+		$('#exportBtn').click(function() {
+			$('#exportXlsControl').toggle(300);
+		})
+
+		$('#exportXlsBtn').click(
+				function() {
+					var url = "/admin/exportwin?prizeid="
+							+ $("[name='prizeid']").val();
+					window.open(url);
+				});
+
+		//設定未領獎
+		$('#updateStatusBtn').click(function() {
+			$('#updateStatusControl').toggle(300);
+		})
+
+		$('#updateStatusSubmit').click(function() {
+			$.ajax({
+				url : 'admin.api/updWinnerStatus',
+				data : {
+					userid : $('[name=updateUserId]').val()
+				},
+				success : function(obj) {
+					alert(obj.message);
+					location.reload();
+				}
+			});
+		});
+	</script>
+</body>
+</html>

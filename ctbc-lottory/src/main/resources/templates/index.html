@@ -1,43 +1,73 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="header">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2018中國信託大個金旺年會</title>
+<!-- Bootstrap core CSS -->
+<link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.ico" th:href="@{/img/favicon.ico}">
+<link href="../static/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet" th:href="@{/plugin/bootstrap/css/bootstrap.min.css}">
+<!-- Custom fonts for this template -->
+<!-- <link rel="stylesheet" th:href="@{/plugin/font-awesome/css/font-awesome.min.css}" href="../static/plugin/font-awesome/css/font-awesome.min.css"> -->
+<!-- <link rel="stylesheet" th:href="@{/plugin/simple-line-icons/css/simple-line-icons.css}" href="../static/plugin/simple-line-icons/css/simple-line-icons.css"> -->
+
+<!-- Custom styles for this template -->
+<link th:href="@{css/mainstyle.css}" href="../static/css/mainstyle.css" rel="stylesheet">
+<style type="text/css">
+.btn {
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 5vh;
+	text-align: center;
+}
+</style>
 </head>
 <body>
-	<div th:include="navbar"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-3">
-				<button id="insertBtn" class="btn btn-primary form-control">新增活動</button>
+	<section class="masthead">
+		<div class="logo"></div>
+	</section>
+	<section class="mastbody">
+		<div class="container contain-bg">
+			<div class="row">
+				<div class="col-md-12">
+					<a href="lottorySlot?prizelv=1" class="btn btn-outline-warning btn-lg btn-block">抽大獎</a>
+				</div>
+			
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<a href="lottorySlot?prizelv=2" class="btn btn-outline-warning btn-lg btn-block">抽二獎</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<a href="lottorySlot?prizelv=3" class="btn btn-outline-warning btn-lg btn-block">抽三獎</a>
+				</div>
+				<div class="col-md-6">
+					<a href="lottorySlot?prizelv=4" class="btn btn-outline-warning btn-lg btn-block">抽四獎</a>
+				</div>
+			</div>
+			<!-- <div class="row">
+				<div class="col-md-6">
+					<a href="lottorySlot.html?prizelv=5" class="btn btn-outline-warning btn-lg btn-block">抽五獎</a>
+				</div>
+				<div class="col-md-6">
+					<a href="lottoryTable.html?prizelv=8" class="btn btn-outline-warning btn-lg btn-block">桌次抽抽樂</a>
+				</div>
+
+			</div> -->
+			<div class="row">
+				<div class="col-md-12">
+					<a href="lottorySlot?prizelv=0" class="btn btn-outline-warning btn-lg btn-block">加碼獎</a>
+				</div>
+				<!-- <div class="col-md-6">
+					<a href="lottory.html?prizelv=9" class="btn btn-outline-warning btn-lg btn-block">加碼專用B</a>
+				</div> -->
 			</div>
 		</div>
-		<hr>
-		<div class="row">
-			<div class="col-12">
-				<table id="maintable" class="table table-bordered"
-					style="width: 100%">
-					<thead>
-						<tr>
-							<th width="20%" scope="col">需求單號</th>
-							<th width="20%" scope="col">活動名稱</th>
-							<th width="10%" scope="col">人數</th>
-							<th width="10%" scope="col">筆數</th>
-							<th width="20%" scope="col">獎項</th>
-							<th width="20%" scope="col">操作</th>
-						</tr>
-					</thead>
-					<tbody>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-	
-	<div th:replace="index_edit"></div>
-
-
-
-	<div th:replace="footer"></div>
-	<script th:src="@{/js/index.js}" src="../static/js/index.js"></script>
-	<script th:src="@{/js/upload.js}" src="../static/js/upload.js"></script>
+	</section>
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{plugin/jquery/jquery.min.js}" src="../static/plugin/jquery/jquery.min.js"></script>
+	<script th:src="@{plugin/bootstrap/js/bootstrap.bundle.min.js}" src="../static/plugin/jquery/jquery.min.js"></script>
 </body>
 </html>

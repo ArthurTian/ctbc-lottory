@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/header"></head>
+<body>
+	<div th:insert="admin/navbar"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-3">
+				<button id="con1" class="btn btn-primary form-control">匯入員工資料</button>
+			</div>
+			<div class="col-3">
+				<select id="usertype" class="form-control">
+					<option value="off">設定公假</option>
+					<option value="on">取消公假</option>
+					<option value="0">設定不出席</option>
+					<option value="1">設定出席（一般員工）</option>
+					<option value="2">設定人派</option>
+					<option value="3">設定老闆</option>
+				</select>
+			</div>
+			<div class="col-1">
+			<button id="userTypebtn" class="btn btn-primary form-control"  onclick="setType()">設定</button>
+			</div>
+			<div class="col-auto">
+				<label>
+					資料最後更新時間：
+					<span id="dntime"></span>
+				</label>
+			</div>
+		</div>
+		<hr>
+		<div id="contorlBar" class="row"></div>
+		<hr>
+		<div class="row">
+			<div class="col-12">
+				<table class="table table-bordered" width="100%">
+					<thead>
+						<tr>
+							<th id="check-th">#</th>
+							<th scope="col">員工編號</th>
+							<th scope="col">員工姓名</th>
+							<th scope="col">處別</th>
+							<th scope="col">部門</th>
+							<th scope="col">公假</th>
+							<th scope="col">類別</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+
+
+
+	<!-- Edit Mode -->
+	<div class="modal fade" id="editmModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">匯入員工資料</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<!-- Modal body -->
+				<form id="uploadMemberFileForm" enctype="multipart/form-data" action="admin/uploadUserList" method="POST">
+					<div class="modal-body">
+						<div class="container">
+							<div id="con-1-bar" class="row col-12">
+								<div class="col-10">
+									<label class="custom-file">
+										<input type="file" name="file" id="file" class="form-control-file" placeholder="Username">
+									</label>
+								</div>
+								<small id="uploadMemberResult" class="form-text text-muted"></small>
+							</div>
+						</div>
+					</div>
+					<!-- footer -->
+					<div class="modal-footer">
+						<button type="button" id="uploadMemberBtn" class="btn btn-info">
+							上傳 <i class="fas fa-spinner fa-pulse loading-icon" style="display: none"></i>
+						</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- end of modal -->
+
+
+
+	<div th:include="admin/footer"></div>
+	<script th:src="@{/js/admin/people.js}" src="/js/admin/people.js">
+	
+    </script>
+</body>
+</html>

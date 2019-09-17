@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/header">
+</head>
+<body>
+	<div th:include="admin/navbar"></div>
+	<div class="container">
+		<h2>系統設定</h2>
+		<hr />
+		<div class="row">
+			<div class="col-4">
+				<label>清除中獎紀錄：</label>
+				<button id="deleteWinner" class="btn btn-danger">執行</button>
+			</div>
+		</div>
+
+	</div>
+	<div th:replace="admin/footer"></div>
+	<script>
+		$('#deleteWinner').click(function() {
+			if (confirm("確定執行？")) {
+				$.post("/admin.api/deleteWinnerLog", function() {
+					alert("執行成功");
+				})
+			}
+		});
+	</script>
+</body>
+</html>

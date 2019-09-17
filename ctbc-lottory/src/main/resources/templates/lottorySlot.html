@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2018中國信託大個金旺年會</title>
+<!-- Bootstrap core CSS -->
+<link href="../static/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet" th:href="@{/plugin/bootstrap/css/bootstrap.min.css}">
+<!-- Slot Machine CSS -->
+<link rel="stylesheet" th:href="@{/plugin/slotmachine/jquery.slotmachine.min.css}" type="text/css" media="screen" href="../static/plugin/slotmachine/jquery.slotmachine.min.css">
+<!-- Custom styles for this template -->
+<link th:href="@{css/mainstyle.css}" href="../static/css/mainstyle.css" rel="stylesheet">
+</head>
+<body>
+	<input id="prizelv" name="prizelv" type="hidden" th:value="${param.prizelv[0]}" />
+
+	<section>
+		<div class="row">
+			<div class="col-3">
+				<div class="logo-s"></div>
+			</div>
+			<div class="col-md-9">
+				<h4 class="l-space">抽獎獎項：</h4>
+				<select id="prize_type" class="prizeselect form-control l-space text-large">
+					<option class="l-space" value="0" data-lastcnt="0">請選擇獎品名稱</option>
+				</select>
+			</div>
+			<!-- <div class="col-4 text-center">
+				<button class="btn btn-lg  btn-go" id="playbtn">
+					GO! <i class="fa fa-hand-o-up"></i>
+				</button>
+			</div>
+			<div class="col-3 text-right">
+				<a id="winbtn" class="btn btn-lg btn-outline" href="#" data-toggle="modal" data-target="#listmodal">中獎名單</a>
+				<a class="btn btn-lg btn-outline" href="/">回首頁</a>
+			</div>
+			<div class="col-1 text-right">
+				<input type="number" id="prizeCnt" value="1" size="1" class="form-control items-align-center" />
+				<label class="l-space">
+					<span class='p-lastcnt'></span>
+				</label>
+			</div> -->
+		</div>
+	</section>
+	<section>
+		<div class="container-fluid my-auto">
+			<div class="row">
+				<div class="col-6 pr-0">
+					<div id="planeMachine">
+						<div class="text-center" data-group="default">中獎單位</div>
+					</div>
+				</div>
+				<div class="col-6 pl-0">
+					<div id="userMachine">
+						<div class="text-center" data-vid="default">中獎人</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8">
+					<div id='winnerList' class="winnerList align-baseline"></div>
+				</div>
+				<div class="col-4">
+					<button class="btn btn-lg btn-go" id="playbtn"></button>
+					<!--<img th:src="@{img/logo_ch.png}"/> -->
+					<!-- <span class="btn-label"> GO <i class="fa fa-hand-o-up"></i></span> -->
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<div th:include="foot"></div>
+	<div th:include="model"></div>
+
+
+	<!-- Bootstrap core JavaScript -->
+	<!-- <script src="plugin/jquery/jquery.min.2.2.4.js"></script>
+	<script src="plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="plugin/cycle2/jquery.cycle2.js"></script>
+	<script src="plugin/cycle2/jquery.cycle2.scrollVert.js"></script>
+	<script src="plugin/slotmachine/jquery.slotmachine.js"></script>
+	<script src="js/slotMain.js"></script>
+	<script src="js/lottorySlot.js"></script> -->
+
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{plugin/jquery/jquery.min.js}" src="../static/plugin/jquery/jquery.min.js"></script>
+	<script th:src="@{plugin/bootstrap/js/bootstrap.bundle.min.js}" src="../static/plugin/jquery/jquery.min.js"></script>
+	<script th:src="@{plugin/cycle2/jquery.cycle2.js}" src="../static/plugin/cycle2/jquery.cycle2.js"></script>
+	<script th:src="@{plugin/cycle2/jquery.cycle2.scrollVert.js}" src="../static/plugin/cycle2/jquery.cycle2.scrollVert.js"></script>
+	<script th:src="@{plugin/slotmachine/jquery.slotmachine.js}" src="../static/plugin/slotmachine/jquery.slotmachine.js"></script>
+	<script th:src="@{js/slotMain.js}" src="../static/js/slotMain.js"></script>
+	<script th:src="@{js/lottorySlot.js}" src="../static/js/lottorySlot.js"></script>
+
+</body>
+</html>

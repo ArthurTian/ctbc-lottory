@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/header"></head>
+<body>
+	<div th:include="admin/navbar"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-3">
+				<button id="insertBtn" class="btn btn-primary form-control">新增獎項</button>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-12">
+				<table class="table table-bordered" style="width: 100%">
+					<thead>
+						<tr>
+							<th scope="col">獎品編號</th>
+							<th scope="col">品項</th>
+							<th scope="col">等級</th>
+							<th scope="col">總數</th>
+							<th scope="col">備註</th>
+							<th scope="col">功能</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Edit Mode -->
+		<div class="modal fade" id="editmModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<form name="editform" class="form">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">編輯獎項</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<!-- Modal body -->
+						<div class="modal-body">
+							<div class="container">
+
+								<div class="form-group">
+									<label>
+										獎品編號：
+										<span class="text-bold text-primary" id="prizeid"></span>
+									</label>
+									<input type="hidden" name="status" value="0"/>
+									<input type="hidden" name="prize_id" />
+								</div>
+								<div class="form-group">
+									<label>獎品名稱：</label>
+									<input type="text" name="prize_name" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>獎品等級：</label>
+									<select class="form-control" name="level" id="levelSelect">
+<!-- 										<option value="1">頭獎</option> -->
+<!-- 										<option value="2">貳獎</option> -->
+<!-- 										<option value="3">參獎</option> -->
+<!-- 										<option value="4">肆獎</option> -->
+<!-- 										<option value="5">伍獎</option> -->
+<!-- 										<option value="8">桌次抽獎</option> -->
+<!-- 										<option value="0">加碼大獎</option> -->
+<!-- 										<option value="9">加碼小獎</option> -->
+									</select>
+								</div>
+								<div class="form-group">
+									<label>獎品總數：</label>
+									<input type="number" name="total" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>備註：</label>
+									<input type="text" name="memo" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>刪除資料：</label>
+									<button id="delbtn" type="button" class="btn btn-sm btn-danger">
+										刪除此筆資料 <i class="fas fa-spinner fa-pulse loading-icon" style="display: none"></i>
+									</button>
+								</div>
+
+							</div>
+						</div>
+						<!-- footer -->
+						<div class="modal-footer">
+							<button id="editsubmit" type="button" class="btn btn-primary">
+								儲存獎項 <i class="fas fa-spinner fa-pulse loading-icon" style="display: none"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- end of modal -->
+
+
+	</div>
+	<!-- end of container -->
+	<div th:include="admin/footer"></div>
+	<script th:src="@{/js/admin/prize.js}" src="/js/admin/prize.js"></script>
+</body>
+</html>

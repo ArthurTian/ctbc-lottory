@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<nav class="navbar navbar-expand-lg navbar-dark bg-ctbc static-top mb-1">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+		aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<span class="img-logo"></span>
+	<a class="navbar-brand" th:href="@{/admin/}" href="/admin/">CTBC個金尾牙抽獎系統 </a>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="/index" target="_blank">抽獎系統</a>
+			</li>
+			<li class="nav-item" th:classappend="${system == 'prize' ? 'active' : '' }">
+<!-- 				<a class="nav-link" href="/admin/index" th:href="@{/admin/index}">活動管理</a> -->
+				<a class="nav-link"  href="/admin/prize" th:href="@{/admin/prize}">獎項管理</a>
+			</li>
+			<li class="nav-item"  th:classappend="${system == 'people' ? 'active' : '' }">
+				<a class="nav-link" href="/admin/people" th:href="@{/admin/people}">人員管理</a>
+				<!-- <a class="nav-link" href="/admin/listpool" th:href="@{/admin/listpool}">抽獎箱管理</a> -->
+			</li>
+			<li class="nav-item" th:classappend="${system == 'prizelog' ? 'active' : '' }">
+				<!-- <a class="nav-link" href="/admin/export">資料匯出</a> -->
+				<a class="nav-link"  href="/admin/prizelog" th:href="@{/admin/prizelog}">中獎名單管理</a>
+			</li>
+			<!-- <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">尾牙活動</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" th:classappend="${system == 'prize' ? 'active' : '' }" href="/admin/prize" th:href="@{/admin/prize}">獎項管理</a>
+					<a class="dropdown-item" th:classappend="${system == 'people' ? 'active' : '' }" href="/admin/people" th:href="@{/admin/people}">人員管理</a>
+					<a class="dropdown-item" th:classappend="${system == 'prizelog' ? 'active' : '' }" href="/admin/prizelog" th:href="@{/admin/prizelog}">中獎名單管理</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="/index" target="_blank">抽獎系統</a>
+				</div>
+			</li> -->
+			<li class="nav-item" th:classappend="${system == 'people' ? 'active' : '' }">
+				<a class="nav-link" href="/admin/system"> 系統設定 </a>
+			</li>
+		</ul>
+	</div>
+</nav>
+</html>

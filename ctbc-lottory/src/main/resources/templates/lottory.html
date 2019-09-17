@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2018中國信託大個金旺年會</title>
+<!-- Bootstrap core CSS -->
+<link href="../static/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet" th:href="@{/plugin/bootstrap/css/bootstrap.min.css}">
+<!-- Custom fonts for this template -->
+<!-- <link rel="stylesheet" th:href="@{/plugin/font-awesome/css/font-awesome.min.css}" href="../static/plugin/font-awesome/css/font-awesome.min.css"> -->
+<link rel="stylesheet" th:href="@{/plugin/simple-line-icons/css/simple-line-icons.css}" href="../static/plugin/simple-line-icons/css/simple-line-icons.css">
+<!-- Slot Machine CSS -->
+<link rel="stylesheet" th:href="@{/plugin/slotmachine/jquery.slotmachine.min.css}" type="text/css" media="screen" href="../static/plugin/slotmachine/jquery.slotmachine.min.css">
+<!-- Custom styles for this template -->
+<link th:href="@{css/mainstyle.css}" href="../static/css/mainstyle.css" rel="stylesheet">
+</head>
+<body>
+	<input type="hidden" id="prizelv" name="prizelv" th:value="${param.prizelv[0]}" />
+	<section>
+		<div class="row">
+			<div class="col-3 logo-s"></div>
+
+			<div class="col-md-9">
+				<h4 class="l-space">抽獎獎項：</h4>
+				<select id="prize_type" class="prizeselect form-control l-space text-large">
+					<option class="l-space" value="0" data-lastcnt="0">請選擇獎品名稱</option>
+				</select>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container-fluid my-auto">
+			<div class="row">
+				<div class="col-8" style="align-self: center; overflow: hidden">
+					<span class="title">中獎名單</span>
+					<br />
+					<div id='winnerList' class="winnerList winnerListlarge align-baseline"></div>
+				</div>
+
+				<!-- go button -->
+				<div class="col-4">
+					<button class="btn btn-lg btn-go" id="playbtn"></button>
+					<!-- 					<img th:src="@{img/logo_ch.png}"/> -->
+					<!-- <span class="btn-label"> GO <i class="fa fa-hand-o-up"></i></span> -->
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<div th:include="model"></div>
+	<div th:include="foot"></div>
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{plugin/jquery/jquery.min.js}" src="../static/plugin/jquery/jquery.min.js"></script>
+	<script th:src="@{plugin/bootstrap/js/bootstrap.bundle.min.js}" src="../static/plugin/jquery/jquery.min.js"></script>
+	<script th:src="@{plugin/cycle2/jquery.cycle2.js}" src="../static/plugin/cycle2/jquery.cycle2.js"></script>
+	<script th:src="@{plugin/cycle2/jquery.cycle2.scrollVert.js}" src="../static/plugin/cycle2/jquery.cycle2.scrollVert.js"></script>
+	<script th:src="@{js/slotMain.js}" src="../static/js/slotMain.js"></script>
+	<script th:src="@{js/lottory.js}" src="../static/js/lottory.js"></script>
+</body>
+</html>
