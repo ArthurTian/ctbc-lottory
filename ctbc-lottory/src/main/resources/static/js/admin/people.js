@@ -29,8 +29,8 @@ $(function() {
     $.post("/admin.api/queryLastBatchStatus", {
 	batchtype : "LS"
     }, function(data) {
-	console.log(data.body.DNTIME);
-	$("#dntime").text(data.body.DNTIME);
+    	console.log(data.DNTIME);
+    	$("#dntime").text(data.DNTIME);
     });
 
 });

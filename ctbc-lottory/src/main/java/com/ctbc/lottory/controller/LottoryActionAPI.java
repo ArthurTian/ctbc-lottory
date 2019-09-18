@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ctbc.lottory.model.dao.LastPartyDAOImpl;
 import com.ctbc.lottory.model.dto.Winner;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/ap")
-@Log4j2
+@Slf4j
 public class LottoryActionAPI {
 	
 	@Autowired

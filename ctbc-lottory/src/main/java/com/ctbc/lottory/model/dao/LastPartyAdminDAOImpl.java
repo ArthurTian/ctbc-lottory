@@ -13,13 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 import com.ctbc.lottory.model.dto.UsrPool;
 import com.ctbc.lottory.util.FnBean;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 @Repository
-@Log4j2
+@Slf4j
 public class LastPartyAdminDAOImpl {
 
 

@@ -29,7 +29,7 @@ $(function() {
     
     //Get Edit Modal Select Options
     $.post("/admin.api/systemkey",{keytype:"LEVEL"},function(rs){
-	if(rs.status){
+	if(rs.errorcode == 0){
 	    $(rs.data).each(function(i,val){
 		$("#levelSelect").append("<option value='"+val.KEYID+"'>"+val.KEYVAL+"</option>");
 	    });
@@ -85,7 +85,7 @@ $('#editsubmit').on('click', function() {
 	},
 	success : function(rs) {
 	    console.log(rs);
-	    if (rs.status == 0) {
+	    if (rs.errorcode == 0) {
 		alert('更新成功!');
 	    } else {
 		alert('更新失敗!');
@@ -113,7 +113,7 @@ $('#delbtn').on('click', function() {
 	    },
 	    success : function(rs) {
 		console.log(rs);
-		if (rs.status == 0) {
+		if (rs.errorcode == 0) {
 		    alert('刪除成功!');
 		} else {
 		    alert('刪除失敗!');

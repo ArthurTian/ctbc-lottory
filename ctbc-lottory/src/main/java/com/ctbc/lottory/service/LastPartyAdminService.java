@@ -22,11 +22,11 @@ import com.ctbc.lottory.model.dao.SystemUtilDAOImpl;
 import com.ctbc.lottory.model.dto.UsrPool;
 import com.ctbc.lottory.util.FnBean;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Service
-@Log4j2
+@Slf4j
 public class LastPartyAdminService {
 
 	@Autowired

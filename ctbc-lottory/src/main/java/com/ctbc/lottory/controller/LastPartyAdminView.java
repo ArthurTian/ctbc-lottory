@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ctbc.lottory.model.dao.LastPartyAdminDAOImpl;
 import com.ctbc.lottory.service.LastPartyExportExcel;
 
-import lombok.extern.log4j.Log4j2;
-
 @Controller
 @RequestMapping("/admin")
 public class LastPartyAdminView {
